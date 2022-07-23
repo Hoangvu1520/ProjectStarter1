@@ -25,7 +25,13 @@ class AuthController extends BackendController
         $errors = $authRequest->validateRegister($_POST);
         if (count($errors) == 0)
         {
-            return '1';
+            $user = new User();
+            $_POST['role_id'] = ROLE::ADMIN;
+            $isCreated = $user->create($_POST);
+            if($isCreated)
+            {
+                return redirect('views/admin/auth/login');
+            }
         }
 
         return $this->view('auth/register.php', ['errors' => $errors]);
