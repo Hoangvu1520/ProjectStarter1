@@ -9,21 +9,27 @@
     <?php if (Flash::has('error')) { ?>
         <p><?php echo Flash::get('error'); ?></p>
     <?php } ?>
-    <form action="<?php echo url('admin/auth/handleLogin') ?>" method="POST">
+    <form action="<?php echo url('admin/auth/handleRegister') ?>" method="POST">
         <div class="mb-3">
-            <label for="formGroupExampleInput" class="form-label">Username</label>
-            <input type="text" class="form-control" <?php echo isset($errors['username']) ? 'is-invalid' : '' ?> name="username" id="formGroupExampleInput" placeholder="Example input placeholder">
-            <?php if (isset($errors['username'])) { ?>
-                <div class="invalid-feedback"><?php echo $errors['username'] ?></div>
+            <label for="formGroupExampleInput" class="form-label">email</label>
+            <input type="text" class="form-control" <?php echo isset($errors['email']) ? 'is-invalid' : '' ?> name="email" id="formGroupExampleInput" placeholder="Example input placeholder">
+            <?php if (isset($errors['email'])) { ?>
+                <div class="invalid-feedback"><?php echo $errors['email'] ?></div>
             <?php } ?>
         </div>
         <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Mật khẩu</label>
-            <input type="password" class="form-control" name="password" id="formGroupExampleInput2" placeholder="Another input placeholder">
+            <label for="formGroupExampleInput" class="form-label">password</label>
+            <input type="password" class="form-control" <?php echo isset($errors['password']) ? 'is-invalid' : '' ?> name="password" id="formGroupExampleInput" placeholder="Example input placeholder">
+            <?php if (isset($errors['password'])) { ?>
+                <div class="invalid-feedback"><?php echo $errors['password'] ?></div>
+            <?php } ?>
         </div>
         <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Xác nhận mật khẩu</label>
-            <input type="password" class="form-control" name="password_confirmation" id="formGroupExampleInput2" placeholder="Another input placeholder">
+            <label for="formGroupExampleInput" class="form-label">Xác nhận password</label>
+            <input type="password" class="form-control" <?php echo isset($errors['password_confirmation']) ? 'is-invalid' : '' ?> name="password_confirmation" id="formGroupExampleInput" placeholder="Example input placeholder">
+            <?php if (isset($errors['password_confirmation'])) { ?>
+                <div class="invalid-feedback"><?php echo $errors['password_confirmation'] ?></div>
+            <?php } ?>
         </div>
         <button type="submit" class="btn btn-primary">Đăng kí</button>
 
